@@ -20,7 +20,7 @@ const App = () => {
       <ul>
         <p1>"This beer is almost as good as Zach's cock" 8.5/10 - Adrian B </p1>
         <br></br>
-        <img src='https://preview.redd.it/e3jhhwib4ao31.jpg?auto=webp&s=69f7dd294222b54c8224ef12175941c07d176314'></img>
+        <img src='https://i.etsystatic.com/22590111/r/il/818d09/2222434772/il_fullxfull.2222434772_le2h.jpg'></img>
 
       </ul>
     </div>
