@@ -5,10 +5,10 @@
   "scripts": {
     "format": "prettier --write .",
     "install:all": "npm install && cd client && npm install && cd .. && cd server && npm install && cd ..",
-    "build": "cd client && npm run build && cd .. && cd server && npm run build && cd ..",
-    "dev:back": "cd server && npm run dev && cd ..",
-    "dev:front": "cd client && npm start && cd ..",
-    "dev:full": "concurrently \"cd server && npm run dev\" \"cd client && npm start\""
+    "build": "NODE_ENV=production cd client && npm run build && cd ..",
+    "dev:back": "NODE_ENV=development cd server && npm run dev && cd ..",
+    "dev:front": "NODE_ENV=development cd client && npm start && cd ..",
+    "dev:full": "NODE_ENV=development concurrently \"cd server && npm run dev && cd ..\" \"cd client && npm start && cd ..\""
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,9 @@
   "description": "",
   "dependencies": {
     "all": "^0.0.0",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.5.2",
     "prettier": "^3.3.3"
