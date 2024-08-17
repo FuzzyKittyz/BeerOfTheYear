@@ -1,29 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
 import axios from 'axios';
-import TodoForm from './TodoForm';
 import './styles/App.css'; 
+import LoginPage from './components/Login';
+import ProfilePage from './components/Profile';
+import Beer from './components/Beer';
+import Brewery from './components/Brewery';
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
-  useEffect(() => {
-    axios.get('http://localhost:5000/todos')
-      .then(response => setTodos(response.data))
-      .catch(error => console.error(error));
-  }, []);
-  
-  const addTodo = (newTodo) => {
-    setTodos([...todos, newTodo]);
-  };
   return (
-    <div className="container">
-      <h1>Beer of the year</h1>
-      <ul>
-        <p1>"This beer is almost as good as Zach's cock" 8.5/10 - Adrian B </p1>
-        <br></br>
-        <img src='https://i.etsystatic.com/22590111/r/il/818d09/2222434772/il_fullxfull.2222434772_le2h.jpg'></img>
-
-      </ul>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<LoginPage />}></Route>
+        <Route path='/home' element={<Home />}></Route>   
+        <Route path='/profile' element={<ProfilePage />}></Route>
+        <Route path='/beer' element={<Beer />}></Route>
+        <Route path='/brewery' element={<Brewery />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
